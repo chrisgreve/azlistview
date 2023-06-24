@@ -349,8 +349,7 @@ class _IndexBarState extends State<IndexBar> {
 
   /// add overlay.
   void _addOverlay(BuildContext context) {
-    OverlayState? overlayState = Overlay.of(context);
-    if (overlayState == null) return;
+    OverlayState overlayState = Overlay.of(context);
     if (overlayEntry == null) {
       overlayEntry = OverlayEntry(builder: (BuildContext ctx) {
         double left;
