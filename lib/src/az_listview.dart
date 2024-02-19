@@ -28,6 +28,7 @@ class AzListView extends StatefulWidget {
     this.indexBarAlignment = Alignment.centerRight,
     this.indexBarMargin,
     this.indexBarOptions = const IndexBarOptions(),
+    this.indexBarEnabled = true,
     this.minCacheExtent,
   }) : super(key: key);
 
@@ -93,6 +94,9 @@ class AzListView extends StatefulWidget {
 
   /// IndexBar options.
   final IndexBarOptions indexBarOptions;
+
+  /// IndexBar enabled.
+  final bool indexBarEnabled;
 
   /// The minimum cache extent used by the underlying scroll lists.
   /// See [ScrollView.cacheExtent].
@@ -200,20 +204,21 @@ class _AzListViewState extends State<AzListView> {
           physics: widget.physics,
           minCacheExtent: widget.minCacheExtent,
         ),
-        Align(
-          alignment: widget.indexBarAlignment,
-          child: IndexBar(
-            data: widget.indexBarData,
-            width: widget.indexBarWidth,
-            height: widget.indexBarHeight,
-            itemHeight: widget.indexBarItemHeight,
-            margin: widget.indexBarMargin,
-            indexHintBuilder: widget.indexHintBuilder,
-            indexBarDragListener: dragListener,
-            options: widget.indexBarOptions,
-            controller: indexBarController,
+        if (widget.indexBarEnabled)
+          Align(
+            alignment: widget.indexBarAlignment,
+            child: IndexBar(
+              data: widget.indexBarData,
+              width: widget.indexBarWidth,
+              height: widget.indexBarHeight,
+              itemHeight: widget.indexBarItemHeight,
+              margin: widget.indexBarMargin,
+              indexHintBuilder: widget.indexHintBuilder,
+              indexBarDragListener: dragListener,
+              options: widget.indexBarOptions,
+              controller: indexBarController,
+            ),
           ),
-        ),
       ],
     );
   }
