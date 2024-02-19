@@ -9,7 +9,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  # https://pub.flutter-io.cn/packages/scrollable_positioned_list
+
+  common_utils: ^2.1.0
   scrollable_positioned_list: ^0.3.8
 
 dev_dependencies:
@@ -21,7 +22,6 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
 # To add assets to your package, add an assets section, like this:
 # assets:
 #   - images/a_dot_burr.jpeg
